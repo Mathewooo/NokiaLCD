@@ -1,0 +1,16 @@
+// DISPLAY:
+#define HEIGHT 48
+#define WIDTH 84
+
+// FONT:
+#define ROWS_PER_CHAR 8
+#define COLUMNS_PER_CHAR 5
+
+// METHOD:
+#define CONT_LEAST_VALUE 128
+#define TEMP_LEAST_VALUE 4
+#define NEW_LINE 0x0a
+
+// MAIN:
+#define TOTAL_ROWS (HEIGHT / ROWS_PER_CHAR)
+#define TOTAL_BITS (WIDTH * TOTAL_ROWS)
