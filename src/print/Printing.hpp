@@ -8,7 +8,7 @@ public:
     virtual size_t write(uint8_t) = 0;
 
     size_t write(const char *str) {
-        if (str == NULL) return 0;
+        if (str == nullptr) return 0;
         return write(
                 (const uint8_t *) str, strlen(str)
         );
@@ -29,7 +29,7 @@ public:
 
     size_t println(const String &s);
     size_t println(char);
-    size_t println(void);
+    size_t println();
 };
 
 #endif

@@ -55,13 +55,12 @@ public:
 
     /**
      * @fn drawBitmap()
-      * @param uint8_t bitmap[]
-      * @param uint16_t bitmap_size
+      * @param uint8_t *bitmap
+      * @param size_t bitmapSize
      * @details Draws a bitmap on the display
-      * Bitmap needs to be in PROGMEM
+      * Bitmap needs to be saved in FLASH MEMORY using PROGMEM
     */
-    void drawBitmap(uint8_t *bitmap,
-                    uint16_t bitmap_size);
+    void drawBitmap(const uint8_t *bitmap, size_t bitmapSize);
 
     /**
     * @fn clear()

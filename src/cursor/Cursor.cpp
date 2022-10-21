@@ -41,8 +41,8 @@ void Cursor::updateCursorPosition(unsigned int xStartPosition) {
     }
 }
 
-Position Cursor::getPosition() {
-    Position currentPosition;
+Position Cursor::getPosition() const {
+    Position currentPosition{};
     currentPosition.y = _y, currentPosition.x = _x;
     return currentPosition;
 }

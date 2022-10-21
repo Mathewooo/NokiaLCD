@@ -16,7 +16,7 @@ class Cursor {
         void moveX(position vl);
         void moveY(position vl);
         void updateCursorPosition(unsigned int xStartPosition);
-        Position getPosition();
+        Position getPosition() const;
 
     private:
         position _y = 0;

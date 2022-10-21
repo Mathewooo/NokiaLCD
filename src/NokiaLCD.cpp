@@ -1,4 +1,4 @@
-#include "NokiaLCD.h"
+#include "NokiaLCD.hpp"
 #include "font/Font.hpp"
 
 NokiaLCD::NokiaLCD() {}
@@ -97,10 +97,9 @@ size_t NokiaLCD::write(uint8_t character) {
     return 1;
 }
 
-void NokiaLCD::drawBitmap(uint8_t *bitmap,
-                          size_t bitmap_size) {
+void NokiaLCD::drawBitmap(const uint8_t *bitmap, size_t bitmapSize) {
     size_t initialX = _cursor.getPosition().x;
-    for (size_t i = 0; i < bitmap_size; i++) {
+    for (size_t i = 0; i < bitmapSize; i++) {
         uint8_t pixel = pgm_read_byte_near(bitmap + i);
         pixel = _currentDisplayMode == DisplayMode::INVERSE
                 ? ~pixel : pixel;

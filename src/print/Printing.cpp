@@ -16,7 +16,7 @@ size_t Printing::print(char c) {
     return write(c);
 }
 
-size_t Printing::println(void) {
+size_t Printing::println() {
     return write("\r\n");
 }
 
