@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 #include "Defs.hpp"
-#include "constants/DisplayMode.h"
+#include "constants/DisplayMode.hpp"
 #include "constants/MuxRate.hpp"
 #include "print/Printing.hpp"
 #include "cursor/Cursor.hpp"
