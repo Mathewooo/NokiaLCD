@@ -31,6 +31,16 @@ void Cursor::moveY(position vl) {
     moveY(--vl);
 }
 
+void Cursor::updateCursorPosition(unsigned int xStartPosition) {
+    _x = (_x + 1)
+            % (xStartPosition + DISPLAY_WIDTH);
+
+    if (_x == 0) {
+        _x = xStartPosition,
+        _y = (_y + 1) % TOTAL_ROWS;
+    }
+}
+
 Position Cursor::getPosition() {
     Position currentPosition;
     currentPosition.y = _y, currentPosition.x = _x;

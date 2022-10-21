@@ -1,9 +1,9 @@
-#ifndef NOKIALCD_PR_HPP
-#define NOKIALCD_PR_HPP
+#ifndef NOKIALCD_PRINTING_HPP
+#define NOKIALCD_PRINTING_HPP
 
 #include "WString.h"
 
-class Pr {
+class Printing {
 public:
     virtual size_t write(uint8_t) = 0;
 
@@ -25,11 +25,9 @@ public:
     }
 
     size_t print(const String &);
-    size_t print(const char[]);
     size_t print(char);
 
     size_t println(const String &s);
-    size_t println(const char[]);
     size_t println(char);
     size_t println(void);
 };

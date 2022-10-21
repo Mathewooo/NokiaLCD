@@ -1,6 +1,8 @@
 #ifndef NOKIALCD_CURSOR_H
 #define NOKIALCD_CURSOR_H
 
+#include "../Defs.hpp"
+
 typedef unsigned short position;
 
 struct Position {
@@ -13,6 +15,7 @@ class Cursor {
         void setCursor(position x, position y);
         void moveX(position vl);
         void moveY(position vl);
+        void updateCursorPosition(unsigned int xStartPosition);
         Position getPosition();
 
     private:

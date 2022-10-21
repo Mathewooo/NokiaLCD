@@ -2,13 +2,15 @@
 #define NOKIA_LCD
 
 #include "Arduino.h"
+#include "Defs.hpp"
 #include "constants/DisplayMode.h"
 #include "constants/MuxRate.hpp"
+#include "print/Printing.hpp"
 #include "cursor/Cursor.hpp"
-#include "Defs.hpp"
-#include "print/Pr.hpp"
 
-class NokiaLCD : public Pr {
+// TODO Implement scroll animations (UP, DOWN, LEFT, RIGHT)
+
+class NokiaLCD : public Printing {
 public:
     NokiaLCD();
 
@@ -19,11 +21,17 @@ public:
       * @param int DC
       * @param int DIN
       * @param int CLK
-     * @details Initializes the display with digital pins.
+     * @details Initializes LCD object with digital pins.
      * DataSheet for the display:
      * (https://www.sparkfun.com/datasheets/LCD/Monochrome/Nokia5110.pdf)
     */
     NokiaLCD(int RST, int CE, int DC, int DIN, int CLK);
+
+    /**
+     * @fn start()
+     * @details Initializes the display with defined pins
+    */
+    void begin();
 
     /**
      * @fn setContrast()
@@ -44,6 +52,16 @@ public:
      * (https://www.sparkfun.com/datasheets/LCD/Monochrome/Nokia5110.pdf)
     */
     void setTemperatureCoefficient(int value);
+
+    /**
+     * @fn drawBitmap()
+      * @param uint8_t bitmap[]
+      * @param uint16_t bitmap_size
+     * @details Draws a bitmap on the display
+      * Bitmap needs to be in PROGMEM
+    */
+    void drawBitmap(uint8_t *bitmap,
+                    uint16_t bitmap_size);
 
     /**
     * @fn clear()
@@ -88,6 +106,8 @@ public:
     virtual size_t write(uint8_t);
 
 private:
+    uint8_t _currentDisplayMode;
+
     void _print(uint8_t character);
     void _startTransmission();
     void _endTransmission();
@@ -100,11 +120,11 @@ private:
     void _initializeForSendingData();
     void _makeEnoughSpaceForPrinting();
 
-    unsigned short _RST;
-    unsigned short _CE;
-    unsigned short _DC;
-    unsigned short _DIN;
-    unsigned short _CLK;
+    uint8_t _RST;
+    uint8_t _CE;
+    uint8_t _DC;
+    uint8_t _DIN;
+    uint8_t _CLK;
 
     Cursor _cursor;
 };

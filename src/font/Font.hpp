@@ -4,15 +4,15 @@
 #include <string.h>
 #include "Characters.hpp"
 
-Character findCorrespondingByte(uint8_t asciiCode) {
-    int total = sizeof chars / sizeof *chars;
-    Character temp;
-    for (int i = 0; i < total; i++) {
-        memcpy(&temp, &chars[i], sizeof(Character));
-        if (static_cast<int>(temp.character) == asciiCode) return temp;
+Character findCorrespondingChar(uint8_t asciiCode) {
+    Character result;
+    for (int i = 0; i < sizeof chars / sizeof *chars; i++) {
+        memcpy_P(&result, &chars[i], sizeof(Character));
+        if (static_cast<int>(result.character) == asciiCode)
+            return result;
     }
-    memcpy(&temp, &chars[0], sizeof(Character));
-    return temp;
+    memcpy_P(&result, &chars, sizeof(Character));
+    return result;
 }
 
 #endif
