@@ -24,10 +24,32 @@ public:
         );
     }
 
+    /**
+    * @fn Printing::print()
+     * @param const String &
+    * @details Prints string on the display
+    */
     size_t print(const String &);
+
+    /**
+    * @fn Printing::print()
+     * @param char
+    * @details Prints char on the display
+    */
     size_t print(char);
 
+    /**
+    * @fn Printing::println()
+     * @param const String &
+    * @details Prints string on the display
+    */
     size_t println(const String &s);
+
+    /**
+    * @fn Printing::println()
+     * @param const char
+    * @details Prints char on the display
+    */
     size_t println(char);
     size_t println();
 };

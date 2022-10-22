@@ -8,7 +8,8 @@
 #include "print/Printing.hpp"
 #include "cursor/Cursor.hpp"
 
-// TODO Implement scroll animations (UP, DOWN, LEFT, RIGHT)
+// TODO Implement scroll animations for printing (UP, DOWN, LEFT, RIGHT)
+// TODO Implement centered printing
 
 class NokiaLCD : public Printing {
 public:
@@ -28,13 +29,13 @@ public:
     NokiaLCD(int RST, int CE, int DC, int DIN, int CLK);
 
     /**
-     * @fn start()
+     * @fn NokiaLCD::start()
      * @details Initializes the display with defined pins
     */
     void begin();
 
     /**
-     * @fn setContrast()
+     * @fn NokiaLCD::setContrast()
       * @param unsigned short value
      * @details Sets contrast for the display, value - (From 0 to 127),
      * by default it's 60. To find out more about setting contrast see:
@@ -44,7 +45,7 @@ public:
     void setContrast(int value);
 
     /**
-     * @fn setTemperatureCoefficient()
+     * @fn NokiaLCD::setTemperatureCoefficient()
       * @param unsigned short value
      * @details Sets TemperatureCoefficient, value - (From 0 to 3),
      * we sometimes need to change voltage for display in different temperatures,
@@ -54,7 +55,7 @@ public:
     void setTemperatureCoefficient(int value);
 
     /**
-     * @fn drawBitmap()
+     * @fn NokiaLCD::drawBitmap()
       * @param uint8_t *bitmap
       * @param size_t bitmapSize
      * @details Draws a bitmap on the display
@@ -63,13 +64,13 @@ public:
     void drawBitmap(const uint8_t *bitmap, size_t bitmapSize);
 
     /**
-    * @fn clear()
+    * @fn NokiaLCD::clear()
     * @details Clears the whole display
     */
     void clear();
 
     /**
-    * @fn clear()
+    * @fn NokiaLCD::clear()
      * @param position inRow
      * @param position fromColumn
      * @param position toColumn
@@ -78,7 +79,7 @@ public:
     void clear(position inRow, position fromColumn, position toColumn);
 
     /**
-     * @fn setCursor()
+     * @fn NokiaLCD::setCursor()
       * @param position x
       * @param position y
      * @details Sets Cursor to desired (x and y)
@@ -86,7 +87,7 @@ public:
     void setCursor(position x, position y);
 
     /**
-    * @fn setDisplayMode()
+    * @fn NokiaLCD::setDisplayMode()
      * @param display_mode value
     * @details Sets display mode,
      * modes(BLANK, NORMAL, ALL_SEGMENTS_ON, INVERSE)
@@ -94,7 +95,7 @@ public:
     void setDisplayMode(uint8_t mode);
 
     /**
-    * @fn setBiasSystem()
+    * @fn NokiaLCD::setBiasSystem()
      * @param mux_rate value
     * @details Sets bias system with mux rate
      * which then sets bias angle (viewing angle),

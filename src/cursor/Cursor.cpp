@@ -13,8 +13,7 @@ void Cursor::moveX(position vl) {
     _x++;
 
     if (_x > MAX_ROW) {
-        moveY(1);
-        _x = 0;
+        moveY(1), _x = 0;
     }
 
     moveX(--vl);
